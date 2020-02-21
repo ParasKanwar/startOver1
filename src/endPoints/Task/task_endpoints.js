@@ -1,8 +1,9 @@
 const express = require("express");
 const Router = express.Router();
+const path = require("path");
 const mongoose = require("mongoose");
-const auth = require("../../../middleware/auth");
-const Task = require("../../../models/tasks/task");
+const auth = require(path.join(__dirname, "../../../middleware/auth"));
+const Task = require(path.join(__dirname, "../../../models/tasks/task"));
 
 Router.post("/tasks", auth, (req, res) => {
   const task = new Task({ ...req.body, owner: req.user._id });

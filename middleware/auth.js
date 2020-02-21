@@ -1,4 +1,6 @@
-const User = require("../models/users/user");
+const path = require("path");
+
+const User = require(path.join(__dirname, "../models/users/user"));
 const jwt = require("jsonwebtoken");
 const auth = async (req, res, next) => {
   try {

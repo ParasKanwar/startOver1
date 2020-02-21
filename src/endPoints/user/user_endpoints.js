@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../../../models/users/user");
-const auth = require("../../../middleware/auth");
+const path = require("path");
+const User = require(path.join(__dirname, "../../../models/users/user"));
+const auth = require(path.join(__dirname, "../../../middleware/auth"));
 // router.get("/users/:id", async (req, res) => {
 //   try {
 //     const user = await User.findById(req.params.id);

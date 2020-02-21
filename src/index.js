@@ -3,8 +3,15 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const app = express();
 const port = process.env.PORT || 3000;
-const taskRouter = require("./endPoints/Task/task_endpoints");
-const userRouter = require("./endPoints/User/user_endpoints");
+const path = require("path");
+const taskRouter = require(path.join(
+  __dirname,
+  "./endPoints/Task/task_endpoints"
+));
+const userRouter = require(path.join(
+  __dirname,
+  "./endPoints/User/user_endpoints"
+));
 const mongodb = require("mongodb");
 
 const ObjectId = mongodb.ObjectID;
