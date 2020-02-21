@@ -10,7 +10,7 @@ const auth = async (req, res, next) => {
       _id: verified._id,
       "tokens.token": token
     });
-    if (user) {
+    if (!user) {
       return res.send("Please Authenticate");
     }
     req.token = token;
