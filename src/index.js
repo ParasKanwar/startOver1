@@ -10,7 +10,7 @@ const taskRouter = require(path.join(
 ));
 const userRouter = require(path.join(
   __dirname,
-  "./endPoints/User/user_endpoints"
+  "./endPoints/user/user_endpoints"
 ));
 const mongodb = require("mongodb");
 
