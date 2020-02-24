@@ -75,12 +75,4 @@ Router.get("/tasks/:id", async (req, res) => {
   }
 });
 
-const main = async () => {
-  const task = await (await Task.findOne({ task: "Hello How are You Paras ?" }))
-    .populate("owner")
-    .execPopulate();
-  console.log(task);
-};
-main();
-
 module.exports = Router;

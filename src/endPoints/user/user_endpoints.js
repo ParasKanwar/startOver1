@@ -98,9 +98,24 @@ router.post("/users", async (req, res) => {
     //   return res.status(500).send("Email Already Exists");
     // }
     const token = await user.generateAuthToken();
+    res.header();
     res.status(201).send({ user, token });
   } catch (e) {
     res.status(400).send(e.message);
+    console.log(e.message);
+  }
+});
+
+router.get("/users/find/:email", async (req, res) => {
+  try {
+    const user = await User.findOne({ Email: req.params.email });
+    if (!user) {
+      return res.status(200).send("");
+    }
+    res.status(400).send("Email Already taken");
+  } catch (e) {
+    console.log(e);
+    res.status(500).send(e.message);
   }
 });
 
